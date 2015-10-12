@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>centos 6.* smb 共享文件夹安装配置</title>
+        <link rel="stylesheet" href="/theme/css/main.css">
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/theme/css/grids-responsive-old-ie-min.css">
+        <link rel="stylesheet" href="/theme/css/side-menu-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/theme/css/grids-responsive-min.css">
+        <link rel="stylesheet" href="/theme/css/side-menu.css">
+        <!--<![endif]-->
+        <link rel="stylesheet" href="/theme/css/pygments.css">
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-12">
+                <div class="header">
+                    <a id="menuLink" class="menu-link" href="#menu">
+                        <span></span>
+                    </a>
+
+                    <div id="menu">
+                        <div class="pure-menu">
+                            <a class="pure-menu-heading" href="/" title="Echovi Home">
+                                Echovi Home
+                            </a>
+
+                            <ul class="pure-menu-list">
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<div class="content pure-u-1 pure-u-md-11-12">
+    <div class="posts">
+        <section class="post">
+<header class="post-header">
+    <h2 class="post-title">
+        <a href="/centos-6-smb-gong-xiang-wen-jian-jia-an-zhuang-pei-zhi.html" rel="bookmark" title="Permalink to centos 6.* smb 共享文件夹安装配置">centos 6.* smb 共享文件夹安装配置</a>
+    </h2>
+    <p class="post-meta">
+        六 10 十月 2015
+        By 
+        <a class="post-author" href="/author/yaobin.html">yaobin</a>
+        Posted in <a class="post-category" href="/category/linux.html">linux</a> 
+ 
+        Tagged as 
+        <a href="/tag/linux-smb.html">linux smb</a> 
+ 
+    </p>
+</header>            <div class="post-description">
+            <p><strong>1.安装</strong></p>
+<div class="highlight"><pre>yum install samba samba-client
+</pre></div>
+
+
+<p><strong>2.配置</strong></p>
+<div class="highlight"><pre>&gt; /etc/samba/smb.conf
+[global]
+workgroup = WORKGROUP
+security = share
+map to guest = bad user
+[Share]
+path = /data/samba/share
+browsable =yes
+writable = yes
+guest ok = yes
+read only = no
+</pre></div>
+
+
+<p><strong>3.启动</strong></p>
+<div class="highlight"><pre>servie smb restart
+</pre></div>
+
+
+<p><strong>4.访问</strong></p>
+<div class="highlight"><pre>windows  \\ip
+mac  smb://ip
+</pre></div>
+            </div>
+        </section>
+    </div>
+    <div class="footer">
+        </div>
+    </div>
+</div>
+        </div>
+
+        <script src="/theme/js/zepto.min.js"></script>
+        <script src="/theme/js/ui.js"></script>
+        <script>
+            Zepto(function($){
+                $('table').addClass('pure-table pure-table-bordered');
+            });
+        </script>
+    </body>
+</html>
