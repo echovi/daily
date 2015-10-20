@@ -81,7 +81,6 @@ function start_up(){
   fi
   echo 'Pelican and HTTP server processes now running in background.'
 }
-
 ###
 #  MAIN
 ###
